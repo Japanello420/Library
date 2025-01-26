@@ -7,7 +7,8 @@ import com.example.library.librarydata.repository.BookRepository;
 import com.example.library.librarydata.repository.AuthorRepository;
 import com.example.library.librarydata.repository.GenreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,8 @@ import java.util.stream.Collectors;
 @Controller
 @RequestMapping("/api/books")
 public class BookController {
+
+    private static final Logger logger = LoggerFactory.getLogger(BookController.class);
 
     private final BookRepository bookRepository;
 
@@ -114,6 +117,8 @@ public class BookController {
             @RequestParam("authors") String authors,
             @RequestParam("genres") String genres,
             Model model) {
+
+        logger.info("Attempting to add a new book with title: {}", title);
 
         if (bookRepository.findByTitle(title).isPresent()) {
             model.addAttribute("error", "Książka o podanym tytule już istnieje.");
