@@ -50,9 +50,9 @@ public class BookController {
         Optional<Book> bookToDelete = bookRepository.findByIdOrTitle(identifier);
         if (bookToDelete.isPresent()) {
             bookRepository.delete(bookToDelete.get());
-            model.addAttribute("message", "Book deleted successfully.");
+            model.addAttribute("message", "Usunięto książkę.");
         } else {
-            model.addAttribute("error", "Book not found with ID or Title: " + identifier);
+            model.addAttribute("error", "Książka o podanym ID lub tytule nie istnieje: " + identifier);
         }
         return "delete-books";
     }
@@ -93,9 +93,9 @@ public class BookController {
             }
 
             bookRepository.save(book);
-            model.addAttribute("message", "Book updated successfully.");
+            model.addAttribute("message", "Zaaktualizowano książkę.");
         } else {
-            model.addAttribute("error", "Book not found with ID or Title: " + identifier);
+            model.addAttribute("error", "Książka o podanym ID lub tytule nie istnieje: " + identifier);
         }
 
         return "edit-book";
@@ -115,6 +115,11 @@ public class BookController {
             @RequestParam("genres") String genres,
             Model model) {
 
+        if (bookRepository.findByTitle(title).isPresent()) {
+            model.addAttribute("error", "Książka o podanym tytule już istnieje.");
+            return "add-book"; // Powrót do formularza z błędem
+        }
+
         Book newBook = new Book();
         newBook.setTitle(title);
         newBook.setIsbn(isbn);
@@ -130,7 +135,7 @@ public class BookController {
 
         // Zapisz książkę w bazie danych
         bookRepository.save(newBook);
-        model.addAttribute("message", "Book added successfully.");
+        model.addAttribute("message", "Dodano książkę.");
 
         return "add-book";
     }

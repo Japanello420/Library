@@ -1,8 +1,6 @@
 package com.example.library.librarywebapi;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class SeleniumTests {
 
     private WebDriver driver;
@@ -34,6 +32,7 @@ public class SeleniumTests {
     }
 
     @Test
+    @Order(1)
     public void testCreateBook() {
         // Otwórz stronę dodawania książki
         driver.get("http://localhost:8080/api/books/add");
@@ -50,10 +49,11 @@ public class SeleniumTests {
 
         // Sprawdź komunikat potwierdzający
         WebElement message = driver.findElement(By.cssSelector(".success-message p"));
-        assertEquals("Book added successfully.", message.getText());
+        assertEquals("Dodano książkę.", message.getText());
     }
 
     @Test
+    @Order(2)
     public void testUpdateBook() {
         // Otwórz stronę edycji książki
         driver.get("http://localhost:8080/api/books/edit");
@@ -81,24 +81,25 @@ public class SeleniumTests {
         WebElement message = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".success-message p")));
 
         // Sprawdź komunikat potwierdzający
-        assertEquals("Book updated successfully.", message.getText());
+        assertEquals("Zaaktulizowano książkę.", message.getText());
     }
 
 
 
     @Test
+    @Order(3)
     public void testDeleteBook() {
         // Otwórz stronę usuwania książki
         driver.get("http://localhost:8080/api/books/delete");
 
         // Wprowadź ID książki do usunięcia
-        driver.findElement(By.name("identifier")).sendKeys("Test Book");
+        driver.findElement(By.name("identifier")).sendKeys("Updated Test Book");
 
         // Kliknij przycisk "Delete"
         driver.findElement(By.cssSelector("button[type='submit']")).click();
 
         // Sprawdź komunikat potwierdzający
         WebElement message = driver.findElement(By.cssSelector(".success-message p"));
-        assertEquals("Book deleted successfully.", message.getText());
+        assertEquals("Usunięto książkę.", message.getText());
     }
 }

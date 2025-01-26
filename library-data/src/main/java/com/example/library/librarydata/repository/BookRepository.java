@@ -10,4 +10,6 @@ import java.util.Optional;
 public interface BookRepository extends JpaRepository<Book, Long> {
     @Query("SELECT b FROM Book b WHERE CAST(b.id AS string) = :identifier OR LOWER(b.title) = LOWER(:identifier)")
     Optional<Book> findByIdOrTitle(@Param("identifier") String identifier);
+
+    Optional<Book> findByTitle(String title);
 }
