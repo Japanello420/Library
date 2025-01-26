@@ -1,0 +1,5 @@
+rootProject.name = 'Library'
+
+include 'library-data'
+include 'library-updater'
+include 'library-web-api'

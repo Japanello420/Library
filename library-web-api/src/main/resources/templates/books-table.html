@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Books</title>
+  </head>
+  <body>
+    <h1>Books List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>ISBN</th>
+          <th>Published Date</th>
+          <th>Authors</th>
+          <th>Genres</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="book : ${books}">
+          <td th:text="${book.id}"></td>
+          <td th:text="${book.title}"></td>
+          <td th:text="${book.isbn}"></td>
+          <td th:text="${book.publishedDate}"></td>
+          <td>
+            <ul>
+              <li
+                th:each="author : ${book.authors}"
+                th:text="${author.name}"
+              ></li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li th:each="genre : ${book.genres}" th:text="${genre.name}"></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <a href="/api/books/add" class="back-link">Dodaj książke</a>
+    <a href="/api/books/edit" class="back-link">Edytuj książke</a>
+    <a href="/api/books/delete" class="back-link">Usuń książkę</a>
+  </body>
+</html>

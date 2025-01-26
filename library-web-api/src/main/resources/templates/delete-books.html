@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Book</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h1>Usuń książkę</h1>
+    <form th:action="@{/api/books/delete}" method="post" class="form-container">
+      <label for="identifier">Podaj ID lun tytuł książki</label>
+      <input
+        type="text"
+        id="identifier"
+        name="identifier"
+        placeholder="Enter ID or Title"
+        required
+      />
+      <button type="submit">Usuń</button>
+    </form>
+    <div th:if="${error}" class="error-message">
+      <p th:text="${error}"></p>
+    </div>
+    <div class="success-message" th:if="${message}" style="display: block;">
+      <p th:text="${message}"></p>
+  </div>
+    <a href="/api/books/getALL" class="back-link">Lista książek</a>
+    <a href="/api/books/add" class="back-link">Dodaj książke</a>
+    <a href="/api/books/edit" class="back-link">Edytuj książke</a>
+
+    <script>
+      // Jeśli komunikat sukcesu jest obecny, odśwież stronę po 3 sekundach
+      const successMessage = document.querySelector('.success-message');
+      if (successMessage) {
+          setTimeout(() => {
+              location.reload();
+          }, 3000); // 3000 ms = 3 sekundy
+      }
+  </script>
+  </body>
+</html>
