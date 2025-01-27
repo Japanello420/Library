@@ -81,7 +81,7 @@ public class SeleniumTests {
         WebElement message = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".success-message p")));
 
         // Sprawdź komunikat potwierdzający
-        assertEquals("Zaaktulizowano książkę.", message.getText());
+        assertEquals("Zaaktualizowano książkę.", message.getText());
     }
 
 

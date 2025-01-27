@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.library.librarywebapi.SeleniumTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-01-26T23:26:31" hostname="DESKTOP-AT13Q2V" time="4.34">
+<testsuite name="com.example.library.librarywebapi.SeleniumTests" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-01-27T00:24:08" hostname="DESKTOP-AT13Q2V" time="4.284">
   <properties/>
-  <testcase name="testCreateBook()" classname="com.example.library.librarywebapi.SeleniumTests" time="1.693"/>
-  <testcase name="testUpdateBook()" classname="com.example.library.librarywebapi.SeleniumTests" time="1.559"/>
-  <testcase name="testDeleteBook()" classname="com.example.library.librarywebapi.SeleniumTests" time="1.087"/>
+  <testcase name="testCreateBook()" classname="com.example.library.librarywebapi.SeleniumTests" time="1.672"/>
+  <testcase name="testUpdateBook()" classname="com.example.library.librarywebapi.SeleniumTests" time="1.547"/>
+  <testcase name="testDeleteBook()" classname="com.example.library.librarywebapi.SeleniumTests" time="1.064"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[sty 27, 2025 12:26:32 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <system-err><![CDATA[sty 27, 2025 1:24:09 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 132
-sty 27, 2025 12:26:32 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+sty 27, 2025 1:24:09 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 132.0.6834.111. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-sty 27, 2025 12:26:34 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+sty 27, 2025 1:24:10 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 132
-sty 27, 2025 12:26:34 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+sty 27, 2025 1:24:10 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 132.0.6834.111. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
-sty 27, 2025 12:26:35 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+sty 27, 2025 1:24:12 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 132
-sty 27, 2025 12:26:35 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+sty 27, 2025 1:24:12 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 132.0.6834.111. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.25.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
 </testsuite>
